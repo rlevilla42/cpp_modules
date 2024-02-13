@@ -1,8 +1,10 @@
+#ifndef PHONEBOOK_CLASS_HPP
+#define PHONEBOOK_CLASS_HPP
 #include "header.hpp"
 
 class   PhoneBook {
     public:
-    void		add(void);
+    void		add(int nb_of_contact);
     void	    search(int index);
     void		exit(void);
     private:
@@ -11,19 +13,4 @@ class   PhoneBook {
     int		nbMaxContact;
 };
 
-void    display(void)
-{
-    std::string i = "index";
-    std::string fn = "first name";
-    std::string ln = "last name";
-    std::string nn = "nickname";
-    std::cout << std::setw(10) << i << " |";
-    std::cout << std::setw(10) << fn << " |";
-    std::cout << std::setw(10) << ln << " |";
-    std::cout << std::setw(10) << nn << " |" << std::endl;
-}
-
-int main(void)
-{
-    display();
-}
+#endif

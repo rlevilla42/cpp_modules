@@ -1,5 +1,6 @@
+#ifndef CONTACT_CLASS_HPP
+#define CONTACT_CLASS_HPP
 #include "header.hpp"
-
 class	Contact {
   private:
 	std::string _name;
@@ -10,5 +11,7 @@ class	Contact {
   public:
 	int			_index;
 	int			_nbMaxContact;
-	Contact 	create(int nb_of_contact);
+	void		create(void);
 };
+
+#endif
