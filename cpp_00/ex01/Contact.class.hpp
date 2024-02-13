@@ -1,6 +1,4 @@
-#include <iostream>
-#include "Contact.cpp"
-
+#include "header.hpp"
 
 class	Contact {
   private:
@@ -9,4 +7,8 @@ class	Contact {
 	std::string _nickName;
 	std::string _phoneNumber;
 	std::string _darkestSecret;
-}
+  public:
+	int			_index;
+	int			_nbMaxContact;
+	Contact 	create(int nb_of_contact);
+};
