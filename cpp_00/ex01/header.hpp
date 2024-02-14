@@ -6,5 +6,5 @@
 #include "PhoneBook.class.hpp"
 //#include "Contact.class.hpp"
 #include <iostream>
-
+void    display_all(PhoneBook book, int nb_of_contact);
 #endif

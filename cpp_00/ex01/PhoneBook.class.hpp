@@ -7,10 +7,9 @@ class   PhoneBook {
     void		add(int nb_of_contact);
     void	    search(int index);
     void		exit(void);
-    private:
-    Contact contact[8];
-    int     index;
-    int		nbMaxContact;
+    Contact     contact[9];
+    int         index;
+    int		    nbMaxContact;
 };
 
 #endif

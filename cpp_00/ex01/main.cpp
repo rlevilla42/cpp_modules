@@ -1,3 +1,4 @@
+#include "header.hpp"
 #include "PhoneBook.class.hpp"
 #include "Contact.class.hpp"
 
@@ -6,26 +7,41 @@ int main(void)
     std::string input;
     char        c;
     PhoneBook   book;
-    int         nb_of_contact = 1;
-    int         input_search;
-    std::cout << "Write 'ADD' to add a contact to the book contact: "<< std::endl << "Write 'SEARCH' to display a contact information "<< std::endl << "and write 'EXIT' if you want to exit the program (it will delete all the data)" << std::endl << "Now write bro: ";
-    std::cin >> input;
-    while (input == 'add' || input == 'search')
+    int         nb_of_contact = 0;
+    int         index_search;
+
+    while (input != "add" && input != "search" && input != "exit")
     {
-        if (input == 'add')
+        std::cout << "Write only one these three instructions. " << std::endl << "Write 'ADD' to add a contact to the book contact: "<< std::endl << "Write 'SEARCH' to display a contact information "<< std::endl << "and write 'EXIT' if you want to exit the program (it will delete all the data)" << std::endl << "Now write bro: ";
+        std::getline(std::cin, input);
+    }
+    //while (input == "add" || input == "search")
+    while (1)
+    {
+        if (input == "add")
         {
             book.add(nb_of_contact);
-            nb_of_Contact++;
+            nb_of_contact++;
         }
-        if (input == 'search')
+        else if (input == "search")
         {
-            std::cout << "Write the index of the contact you want to see the informations: ";
+            display_all(book, nb_of_contact);
+            /*std::cout << std::endl << "Write the index of the contact you want to see the informations: ";
             std::cin >> c;
-            input_search = c - 48;
-            book.search(input_search);
+            index_search = c - 48;
+            book.search(index_search);*/
         }
-        std::cout << "Write 'ADD' to add a new contact to the book contact: "<< std::endl << "Write 'SEARCH' to display a contact information "<< std::endl << "and write 'EXIT' if you want to exit the program (it will delete all the data)" << std::endl << "Now write bro: ";
-        std::cin >> input;
+        else if (input == "exit")
+        {
+            break;
+        }
+        std::cout << "Choose again between 'add' and 'search'(or tap 'exit' to quit): ";
+        std::getline(std::cin, input);
+        if (input != "add" && input != "search" && input != "exit")
+        {
+            std::cout << "Don't know this instruction. " << std::endl;
+        }
+        //continue;
     }
     return (0);
 }

@@ -4,12 +4,15 @@ void	Contact::create(void) {
 	std::string	user_input;
 	while (user_input.empty())
 	{
-		std::cout << "name: ";
+		std::cout << "first name: " << std::flush;
 		std::getline(std::cin, user_input);
+		//std::cin >> user_input;
 		if (user_input.empty())
+		{
 			std::cout << "please fill information, do net let it empty" << std::endl;
+		}
 	}
-	this->_name = user_input;
+	this->firstName = user_input;
 	user_input = "";
 	while (user_input.empty())
 	{
@@ -18,7 +21,7 @@ void	Contact::create(void) {
 		if (user_input.empty())
 			std::cout << "please fill information, do net let it empty" << std::endl;
 	}
-	this->_lastName = user_input;
+	this->lastName = user_input;
 	user_input = "";
 	while (user_input.empty())
 	{
@@ -27,7 +30,7 @@ void	Contact::create(void) {
 		if (user_input.empty())
 			std::cout << "please fill information, do net let it empty" << std::endl;
 	}
-	this->_nickName = user_input;
+	this->nickName = user_input;
 	user_input = "";
 	while (user_input.empty())
 	{
@@ -36,7 +39,7 @@ void	Contact::create(void) {
 		if (user_input.empty())
 			std::cout << "please fill information, do net let it empty" << std::endl;
 	}
-	this->_phoneNumber = user_input;
+	this->phoneNumber = user_input;
 	user_input = "";
 	while (user_input.empty())
 	{
@@ -45,5 +48,6 @@ void	Contact::create(void) {
 		if (user_input.empty())
 			std::cout << "please fill information, do net let it empty" << std::endl;
 	}
-	this->_darkestSecret = user_input;
+	this->darkestSecret = user_input;
+	return;
 }
