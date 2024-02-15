@@ -35,9 +35,10 @@ void	PhoneBook::search(int nb_of_contact)
         }
 	}
 	index = str[0] - 48;
-	if (index > nb_of_contact)
+	if (index > nb_of_contact - 1)
 	{
 		std::cout << "Nothing exist at this index." << std::endl;
+		return;
 	}
 	std::cout << "first name: " << this->contact[index].firstName << std::endl;
 	std::cout << "last name: " << this->contact[index].lastName << std::endl;

@@ -5,7 +5,6 @@
 int main(void)
 {
     std::string input;
-    char        c;
     PhoneBook   book;
     int         nb_of_contact = 0;
 

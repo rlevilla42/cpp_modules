@@ -29,7 +29,7 @@ void    display_all(PhoneBook book, int nb_of_contact)
    int  index = 0;
    if (nb_of_contact == 0)
    {
-        std::cout << "Create at least one contact before."<< std::endl;
+        std::cout << "Create at least one contact before -___-"<< std::endl;
         return;
    }
    if (nb_of_contact < 9)
