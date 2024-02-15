@@ -29,10 +29,8 @@ void	PhoneBook::search(int nb_of_contact)
     {
         std::cout << std::endl << "Write the index of the contact you want to see the informations: ";
         std::getline(std::cin, str);
-        if (str.empty() || str.length() == 0)
-        {
+        if (str.empty() || str.length() > 1 || str[0] < 48 || str[0] > 57)
             return;
-        }
 	}
 	index = str[0] - 48;
 	if (index > nb_of_contact - 1)

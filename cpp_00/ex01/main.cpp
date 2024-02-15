@@ -26,9 +26,7 @@ int main(void)
             book.search(nb_of_contact);
         }
         else if (input == "exit")
-        {
             break;
-        }
         std::cout << "Choose again between 'add' and 'search' (or tap 'exit' to quit): ";
         std::getline(std::cin, input);
         if (input != "add" && input != "search" && input != "exit")
