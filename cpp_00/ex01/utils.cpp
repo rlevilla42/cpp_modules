@@ -21,17 +21,17 @@ void    display_one(Contact contact)
     std::cout << std::setw(10) << cut_str(contact.firstName) << " |";
     std::cout << std::setw(10) << cut_str(contact.lastName) << " |";
     std::cout << std::setw(10) << cut_str(contact.nickName) << " |" << std::endl;
-/*std::cout << std::setw(10) << cut_str(contact._firstName) << " |";
-    std::cout << std::setw(10) << cut_str(contact._lastName) << " |";
-    std::cout << std::setw(10) << cut_str(contact._nickName) << " |";
-    std::cout << std::setw(10) << cut_str(contact._phoneNumber) << " |";
-    std::cout << std::setw(10) << cut_str(contact._darkestSecret) << " |" << std::endl;*/
     return;
 }
 
-    void    display_all(PhoneBook book, int nb_of_contact)
+void    display_all(PhoneBook book, int nb_of_contact)
 {
    int  index = 0;
+   if (nb_of_contact == 0)
+   {
+        std::cout << "Create at least one contact before."<< std::endl;
+        return;
+   }
    if (nb_of_contact < 9)
    {
         while (index < nb_of_contact)

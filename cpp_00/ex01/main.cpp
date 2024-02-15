@@ -8,14 +8,12 @@ int main(void)
     char        c;
     PhoneBook   book;
     int         nb_of_contact = 0;
-    int         index_search;
 
     while (input != "add" && input != "search" && input != "exit")
     {
         std::cout << "Write only one these three instructions. " << std::endl << "Write 'ADD' to add a contact to the book contact: "<< std::endl << "Write 'SEARCH' to display a contact information "<< std::endl << "and write 'EXIT' if you want to exit the program (it will delete all the data)" << std::endl << "Now write bro: ";
         std::getline(std::cin, input);
     }
-    //while (input == "add" || input == "search")
     while (1)
     {
         if (input == "add")
@@ -26,16 +24,13 @@ int main(void)
         else if (input == "search")
         {
             display_all(book, nb_of_contact);
-            /*std::cout << std::endl << "Write the index of the contact you want to see the informations: ";
-            std::cin >> c;
-            index_search = c - 48;
-            book.search(index_search);*/
+            book.search(nb_of_contact);
         }
         else if (input == "exit")
         {
             break;
         }
-        std::cout << "Choose again between 'add' and 'search'(or tap 'exit' to quit): ";
+        std::cout << "Choose again between 'add' and 'search' (or tap 'exit' to quit): ";
         std::getline(std::cin, input);
         if (input != "add" && input != "search" && input != "exit")
         {

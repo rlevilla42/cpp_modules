@@ -5,7 +5,7 @@
 class   PhoneBook {
     public:
     void		add(int nb_of_contact);
-    void	    search(int index);
+    void	    search(int nb_of_contact);
     void		exit(void);
     Contact     contact[9];
     int         index;
