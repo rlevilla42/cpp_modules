@@ -1,6 +1,9 @@
 #include "Weapon.hpp"
 
-Weapon::Weapon(void){};
+Weapon::Weapon(std::string n) {
+	setType(n);
+	return;
+};
 Weapon::~Weapon(void){};
 
 void	Weapon::setType(std::string name) {
@@ -9,10 +12,10 @@ void	Weapon::setType(std::string name) {
 };
 
 const	std::string &Weapon::getType(void) {
-	if (this->_type.empty())
+	/*if (this->_type.empty())
 	{
 		std::cout << "Set _type before call the getters." << std::endl;
 		//return(0);
-	}
+	}*/
 	return (this->_type);
 };

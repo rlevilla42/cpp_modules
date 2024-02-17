@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRC = 	main.cpp Weapon.cpp
+SRC = 	main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
 CC = g++
 
@@ -18,7 +18,7 @@ CC = g++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = zombieHorde
+NAME = Unncessary_Violence
 
 OBJ = $(SRC:.cpp=.o)
 
