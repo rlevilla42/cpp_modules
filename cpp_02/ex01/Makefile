@@ -18,7 +18,7 @@ CC = g++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = Fixed
+NAME = Fixed_usefull
 
 OBJ = $(SRC:.cpp=.o)
 
