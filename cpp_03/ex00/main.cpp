@@ -2,7 +2,7 @@
 
 int	main(void)
 {
-	std::cout <<"--cp-t a---" << std::endl;
+	//std::cout <<"--cp-t a---" << std::endl;
 	ClapTrap a;
 	a.attack("Montagnier");
 	a.takeDamage(6);

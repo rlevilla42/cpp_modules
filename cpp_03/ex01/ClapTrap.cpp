@@ -3,7 +3,7 @@
 /************** constructor *************/
 
 ClapTrap::ClapTrap(void) {
-    std::cout << "Constructor by default called" << std::endl;
+    std::cout << " ClapTrap Constructor by default called" << std::endl;
     this->_hitPoints = 10;
     this->_energyPoints = 10;
     this->_attackDamage = 0;
@@ -11,7 +11,7 @@ ClapTrap::ClapTrap(void) {
 };
 
 ClapTrap::ClapTrap(std::string name) {
-    std::cout << "Constructor has been called" << std::endl;
+    std::cout << "ClapTrap Constructor named has been called" << std::endl;
     this->_hitPoints = 10;
     this->_energyPoints = 10;
     this->_attackDamage = 0;
@@ -20,17 +20,18 @@ ClapTrap::ClapTrap(std::string name) {
 };
 
 ClapTrap::ClapTrap(ClapTrap const &src) {
-    std::cout << "Constructor by copy called" << std::endl;
+    std::cout << "ClapTrap Constructor by copy called" << std::endl;
     *this = src;
     return;
 };
 
 ClapTrap::~ClapTrap(void) {
-    std::cout << "Destructor has been called" << std::endl;
+    std::cout << "ClapTrap Destructor has been called" << std::endl;
     return;
 };
 
 ClapTrap &ClapTrap::operator=(ClapTrap const &rhs) {
+    std::cout << "ClapTrap Copy assignment called" << std::endl;
     if (this == &rhs)
     {
         return (*this);
@@ -39,7 +40,6 @@ ClapTrap &ClapTrap::operator=(ClapTrap const &rhs) {
     this->_hitPoints = rhs._hitPoints;
     this->_energyPoints = rhs._energyPoints;
     this->_attackDamage = rhs._attackDamage;
-    std::cout << "Copy assignment called" << std::endl;
     return(*this);
 };
 
@@ -80,7 +80,7 @@ void ClapTrap::beRepaired(unsigned int amount) {
         this->_energyPoints = 0;
     }
     this->_hitPoints += amount;
-    std::cout << "ClapTrap is being repaired. He lost 1 point of energy point but gain "
+    std::cout << "ClapTrap is being repaired. It lost 1 point of energy point but gain "
     << amount << " point(s) of hitpoint. He's now " << this->_hitPoints << " hit points hehe ;p"
     << std::endl;
     return;
