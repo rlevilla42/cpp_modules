@@ -57,7 +57,7 @@ void    Bureaucrat::signForm(Form &src) {
     if (src.getSignedStatus()) 
     {
         std::cout << "Bureaucrat named " << this->_name << " signed Form " << src.getName() << std::endl << std::endl;
-    }
+    } 
     else {
         if (this->_grade > src.getGradeToSign())
         {
