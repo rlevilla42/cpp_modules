@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRC = 	main.cpp Bureaucrat.cpp Form.cpp
+SRC = 	main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 
 CC = g++
 
@@ -18,7 +18,7 @@ CC = g++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = form
+NAME = toutcawesh
 
 OBJ = $(SRC:.cpp=.o)
 

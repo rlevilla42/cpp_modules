@@ -1,11 +1,11 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
 /************** constructor *************/
 
-Form::Form(void):_name("test"), _gradeToSign(150), _gradeToExec(150),_signed(false) {return;};
+AForm::AForm(void):_name("test"), _gradeToSign(150), _gradeToExec(150),_signed(false) {return;};
 
-Form::Form(std::string name, int gradeToSign, int gradeToExec): _name(name),
+AForm::AForm(std::string name, int gradeToSign, int gradeToExec): _name(name),
     _gradeToSign(gradeToSign),
     _gradeToExec(gradeToExec),
     _signed(false)
@@ -13,7 +13,7 @@ Form::Form(std::string name, int gradeToSign, int gradeToExec): _name(name),
     return;
 };
 
-Form::Form(Form const &src) : _name(src.getName()),
+AForm::AForm(AForm const &src) : _name(src.getName()),
     _gradeToSign(src.getGradeToSign()),
     _gradeToExec(src.getGradeToExec()),
     _signed(src.getSignedStatus())
@@ -27,11 +27,13 @@ Form::Form(Form const &src) : _name(src.getName()),
     return;
 };
 
-Form::~Form(void) {return;};
+AForm::~AForm(void) {return;};
 
-Form &Form::operator=(Form const &rhs) {
+AForm &AForm::operator=(AForm const &rhs) {
+    // do nothing because all these variable are constant i think
     if (this != &rhs)
     {
+        this->_signed = rhs.getSignedStatus();
         return(*this);
     }
     return (*this);
@@ -39,7 +41,7 @@ Form &Form::operator=(Form const &rhs) {
 
 /************** function *************/
 
-void    Form::beSigned(Bureaucrat const &b) {
+void    AForm::beSigned(Bureaucrat const &b) {
     if (b.getGrade() > this->_gradeToSign) {
         throw GradeTooLowException();
     }
@@ -49,26 +51,26 @@ void    Form::beSigned(Bureaucrat const &b) {
     return;
 };
 
-std::string Form::getName(void) const{
+std::string AForm::getName(void) const{
     return this->_name;
 };
 
-int Form::getGradeToSign(void) const{
+int AForm::getGradeToSign(void) const{
     return this->_gradeToSign;
 };
 
-int Form::getGradeToExec(void) const{
+int AForm::getGradeToExec(void) const{
     return this->_gradeToExec;
 };
 
-bool Form::getSignedStatus(void) const{
+bool AForm::getSignedStatus(void) const{
     return this->_signed;
 };
 
-const char* Form::GradeTooHighException::what() const throw() {return "Grade is too high to sign the form papi chullo";};
-const char* Form::GradeTooLowException::what() const throw() {return "Grade is too low to sign the form papi chullo";};
-std::ostream &operator<<(std::ostream &o, Form const &i) {
-    o << "Form:" << std::endl
+const char* AForm::GradeTooHighException::what() const throw() {return "Grade is too high to sign the AForm papi chullo";};
+const char* AForm::GradeTooLowException::what() const throw() {return "Grade is too low to sign the AForm papi chullo";};
+std::ostream &operator<<(std::ostream &o, AForm const &i) {
+    o << "AForm:" << std::endl
     << "name = " << i.getName() << std::endl
     << "gradeToSign = " << i.getGradeToSign() << std::endl
     << "gradeToExec = " << i.getGradeToExec() << std::endl

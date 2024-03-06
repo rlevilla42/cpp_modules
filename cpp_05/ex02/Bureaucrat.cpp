@@ -1,6 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
-
+#include "AForm.hpp"
 
 /************** constructor *************/
 
@@ -53,7 +52,7 @@ void Bureaucrat::decreaseGrade(void) {
     return;
 };
 
-void    Bureaucrat::signForm(Form &src) {
+void    Bureaucrat::signForm(AForm &src) {
     if (src.getSignedStatus()) 
     {
         std::cout << "Bureaucrat named " << this->_name << " signed Form " << src.getName() << std::endl << std::endl;
