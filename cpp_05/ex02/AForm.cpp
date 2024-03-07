@@ -67,8 +67,8 @@ bool AForm::getSignedStatus(void) const{
     return this->_signed;
 };
 
-const char* AForm::GradeTooHighException::what() const throw() {return "Grade is too high to sign the AForm papi chullo";};
-const char* AForm::GradeTooLowException::what() const throw() {return "Grade is too low to sign the AForm papi chullo";};
+const char* AForm::GradeTooHighException::what() const throw() {return "Bureacrat grade is too high to sign the AForm papi chullo";};
+const char* AForm::GradeTooLowException::what() const throw() {return "Bureacrat grade is too low to sign the AForm papi chullo";};
 std::ostream &operator<<(std::ostream &o, AForm const &i) {
     o << "AForm:" << std::endl
     << "name = " << i.getName() << std::endl

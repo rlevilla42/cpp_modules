@@ -5,9 +5,10 @@
 class PresidentialPardonForm: public AForm {
 public:
     PresidentialPardonForm(void);
-    PresidentialPardonForm(std::string &target);
+    PresidentialPardonForm(std::string const &target);
     PresidentialPardonForm(PresidentialPardonForm const &src);
     ~PresidentialPardonForm(void);
+    std::string    getTarget(void) const;
 
     /******** exception *********/
 

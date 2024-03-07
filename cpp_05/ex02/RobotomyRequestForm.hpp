@@ -7,11 +7,12 @@
 
 class RobotomyRequestForm: public AForm {
 public:
-RobotomyRequestForm(void);
-RobotomyRequestForm(std::string &target);
-RobotomyRequestForm(RobotomyRequestForm const &src);
-~RobotomyRequestForm(void);
+    RobotomyRequestForm(void);
+    RobotomyRequestForm(std::string const &target);
+    RobotomyRequestForm(RobotomyRequestForm const &src);
+    ~RobotomyRequestForm(void);
 
+    std::string    getTarget(void) const;
 void    execute(Bureaucrat const &executor) const;
     class CheckSignStatus: public std::exception {
         public:
@@ -21,7 +22,7 @@ void    execute(Bureaucrat const &executor) const;
         public:
             const char* what() const throw();
     };
-RobotomyRequestForm &operator=(RobotomyRequestForm const &rhs);
+    RobotomyRequestForm &operator=(RobotomyRequestForm const &rhs);
 private:
     std::string _target;
 };

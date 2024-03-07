@@ -8,12 +8,15 @@ class ShrubberyCreationForm: public AForm {
 public:
 /******** constructor **********/
     ShrubberyCreationForm(void);
-    ShrubberyCreationForm(std::string &target);
+    ShrubberyCreationForm(std::string const &target);
     ShrubberyCreationForm(ShrubberyCreationForm const &src);
     ~ShrubberyCreationForm(void);
 
-/******** EXECEPTION **********/
+    std::string    getTarget(void) const;
     void    execute(Bureaucrat const &executor) const;
+
+    /******** EXECEPTION **********/
+
     class CheckSignStatus: public std::exception {
         public:
             const char* what() const throw();
@@ -25,7 +28,7 @@ public:
     class GradeTooLowToExec: public std::exception {
         public:
             const char* what() const throw();
-    }; 
+    };
 
     /********* operator ********/
     ShrubberyCreationForm &operator=(ShrubberyCreationForm const &rhs);

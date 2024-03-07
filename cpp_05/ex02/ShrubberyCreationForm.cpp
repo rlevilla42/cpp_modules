@@ -8,7 +8,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(void): AForm::AForm("Default Shrubb
     return;
 };
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string &target): AForm::AForm("Shrubbery Form", 145, 137) {
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target): AForm::AForm("Shrubbery Form", 145, 137) {
     this->_target = target;
     return;
 };
@@ -46,6 +46,10 @@ const char* ShrubberyCreationForm::GradeTooLowToExec::what() const throw() {
 
 /************** function *************/
 
+std::string    ShrubberyCreationForm::getTarget(void) const {
+    return this->_target;
+};
+
 void    ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
     if (executor.getGrade() > this->getGradeToExec())
     {
@@ -76,4 +80,10 @@ void    ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
         return;
 };
 
-//std::ostream &operator<<(std::ostream &o, ShrubberyCreationForm const &i) {o << i.get();return o;};
+std::ostream &operator<<(std::ostream &o, ShrubberyCreationForm const &i) {
+    o << "target: " << i.getTarget() << std::endl
+    << "_gradeToSign: " << i.getGradeToSign() << std::endl
+    << "_gradeToExec: " << i.getGradeToExec() << std::endl
+    << "_signed: " << (i.getSignedStatus() ? "true" : "false") << std::endl;
+    return o;
+};

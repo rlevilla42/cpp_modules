@@ -8,7 +8,7 @@ class Bureaucrat;
 class AForm {
 public:
     AForm(void);
-    AForm(std::string name, int gradeToSign, int gradeToExec);
+    AForm(std::string const name, int gradeToSign, int gradeToExec);
     AForm(AForm const &src);
     ~AForm(void);
 

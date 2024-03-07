@@ -8,7 +8,7 @@ RobotomyRequestForm::RobotomyRequestForm(void): AForm::AForm("Default Robotomy F
     return;
 };
 
-RobotomyRequestForm::RobotomyRequestForm(std::string &target): AForm::AForm("Robotomy Form", 72, 45) {
+RobotomyRequestForm::RobotomyRequestForm(std::string const &target): AForm::AForm("Robotomy Form", 72, 45) {
     this->_target = target;
     return;
 };
@@ -45,6 +45,9 @@ const char* RobotomyRequestForm::GradeTooLowToExec::what() const throw() {
 };
 
 /************** function *************/
+std::string    RobotomyRequestForm::getTarget(void) const {
+    return this->_target;
+};
 
 void    RobotomyRequestForm::execute(Bureaucrat const &executor) const {
     if (executor.getGrade() > this->getGradeToExec())
@@ -64,4 +67,10 @@ void    RobotomyRequestForm::execute(Bureaucrat const &executor) const {
     return;
 };
 
-//std::ostream &operator<<(std::ostream &o, RobotomyRequestForm const &i) {o << i.get();return o;};
+std::ostream &operator<<(std::ostream &o, RobotomyRequestForm const &i) {
+    o << "target: " << i.getTarget() << std::endl
+    << "_gradeToSign: " << i.getGradeToSign() << std::endl
+    << "_gradeToExec: " << i.getGradeToExec() << std::endl
+    << "_signed: " << (i.getSignedStatus() ? "true" : "false") << std::endl;
+    return o;
+};

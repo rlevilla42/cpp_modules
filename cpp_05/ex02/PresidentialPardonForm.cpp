@@ -8,7 +8,7 @@ PresidentialPardonForm::PresidentialPardonForm(void): AForm::AForm("Default Pres
     return;
 };
 
-PresidentialPardonForm::PresidentialPardonForm(std::string &target): AForm::AForm("PresidentialPardon Form", 25, 5) {
+PresidentialPardonForm::PresidentialPardonForm(std::string const &target): AForm::AForm("PresidentialPardon Form", 25, 5) {
     this->_target = target;
     return;
 };
@@ -45,6 +45,9 @@ const char* PresidentialPardonForm::GradeTooLowToExec::what() const throw() {
 };
 
 /************** function *************/
+std::string    PresidentialPardonForm::getTarget(void) const {
+    return this->_target;
+};
 
 void    PresidentialPardonForm::execute(Bureaucrat const &executor) const {
     if (executor.getGrade() > this->getGradeToExec())
@@ -57,4 +60,10 @@ void    PresidentialPardonForm::execute(Bureaucrat const &executor) const {
     return;
 };
 
-//std::ostream &operator<<(std::ostream &o, PresidentialPardonForm const &i) {o << i.get();return o;};
+std::ostream &operator<<(std::ostream &o, PresidentialPardonForm const &i) {
+    o << "target: " << i.getTarget() << std::endl
+    << "_gradeToSign: " << i.getGradeToSign() << std::endl
+    << "_gradeToExec: " << i.getGradeToExec() << std::endl
+    << "_signed: " << (i.getSignedStatus() ? "true" : "false") << std::endl;
+    return o;
+};

@@ -69,11 +69,23 @@ void    Bureaucrat::signForm(AForm &src) {
     }
 };
 
+void        Bureaucrat::executeForm(AForm const & form) {
+    if (this->getGrade() > form.getGradeToExec())
+    {
+        std::cout << "Bureaucrat named " << this->_name << " CANNOT execute " << form.getName()
+        << " because his grade is too low" << std::endl;
+    }
+    else {
+        std::cout << "Bureaucrat named " << this->_name << " executed " << form.getName()
+        << std::endl;
+    }
+};
+
 const char* Bureaucrat::GradeTooHighException::what() const throw() {return "Grade is too high hehehe";};
 
 const char* Bureaucrat::GradeTooLowException::what() const throw () {return "Grade is too low hehehe";};
 
 std::ostream &operator<<(std::ostream &o, Bureaucrat const &i) {
-    o << i.getName() << ", bureaucrat grade " << i.getGrade();
+    o << i.getName() << ", bureaucrat grade " << i.getGrade() << std::endl;
     return o;
 };
