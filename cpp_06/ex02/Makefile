@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRC = 	main.cpp ScalarConverter.cpp
+SRC = 	main.cpp A.cpp B.cpp Base.cpp C.cpp
 
 CC = g++
 
@@ -18,7 +18,7 @@ CC = g++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = scalarConverter
+NAME = base
 
 OBJ = $(SRC:.cpp=.o)
 
