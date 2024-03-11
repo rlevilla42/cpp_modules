@@ -101,6 +101,62 @@ static bool isSpecialDouble(double value)
         return isnancustom(value) || isinfcustom(value);
 }
 
+std::string impossible(int n)
+{
+    if (n == 1)
+        return "char: impossible";
+    if (n == 2)
+        return impossible(1) + "\nint: impossible";
+    if (n == 3)
+        return impossible(2) + "\nfloat: impossible";
+    if (n == 4)
+        return impossible(3) + "\ndouble: impossible";
+    return "";
+}
+
+void    print_result(char const& c, int const& i, float const& f, double const& d)
+{
+    std::cout << std::fixed << std::setprecision(1); 
+    if (d > 0 && isinf(d) == false && (d < std::numeric_limits<float>::min() || d > std::numeric_limits<float>::max()))
+        std::cout << impossible(3) << "\ndouble: " << d << std::endl;
+    else if (isnan(f) || isinf(f) || f < std::numeric_limits<int>::min() || f > std::numeric_limits<int>::max())
+        std::cout << impossible(2) << "\nfloat: "<< f << "f\ndouble: " << d << std::endl;
+    else if (i < std::numeric_limits<char>::min() || i > std::numeric_limits<char>::max())
+        std::cout << impossible(1) << "\nint: " << i << "\nfloat: " << f << "f\ndouble: " << d << std::endl;
+    else
+    {
+        std::cout << "char: ";
+        if (isprint(c))
+            std::cout << "\'" << c << "\'";
+        else
+            std::cout << "Non displayable";
+        std::cout<<
+            "\nint: "       << i <<
+            "\nfloat: "     << f <<
+            "f\ndouble: "   << d << std::endl;
+    }
+}
+
+bool    weird_maths(std::string const& str)
+{
+    std::string const special_nums[6] = {"-inff", "+inff", "nanf", "-inf", "+inf", "nan"};
+    int i = 0;
+    while (i <= 5 && str != special_nums[i])
+        i++;
+    if (i > 5)
+        return false;
+    else if (i < 3)
+    {
+        float f = atof(special_nums[i].c_str());
+        print_result(0, 0, f, static_cast<double>(f));
+    }
+    else
+    {
+        double d = std::strtod(str.c_str(), NULL);
+        print_result(0, 0, static_cast<float>(d), d);
+    }
+    return (true);
+}
 
 void ScalarConverter::toFloat(std::string litteral)
 {
@@ -228,6 +284,10 @@ void ScalarConverter::toSpecial(std::string litteral)
 
 void ScalarConverter::convert(std::string const &litteral)
 {
+    if (weird_maths(litteral))
+    {
+        return;
+    }
     switch (checkType(litteral))
     {
         case Char:
