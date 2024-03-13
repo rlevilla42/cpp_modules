@@ -18,7 +18,7 @@ CC = g++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = whatever
+NAME = iter
 
 OBJ = $(SRC:.cpp=.o)
 
