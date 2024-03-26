@@ -23,11 +23,8 @@ std::map<std::string, float>    BitcoinExchange::getData(void) {return this->_da
 /********   PARSE DATA.CSV SOURCE FILE  ********/
 
 void                            BitcoinExchange::fileDataStruct(std::string line) {
-    std::cout << line << std::endl;
     this->_dataKeyValue = line.substr(0, 10);
-    std::cout << this->_dataKeyValue << std::endl;
     std::string tempValue = line.substr(11, line.size() - 1);
-    std::cout << tempValue << std::endl;
     const char *temp_cstr = tempValue.c_str();
     this->_dataValue = static_cast<float>(std::strtod(temp_cstr, NULL));
     //std::cout << std::fixed << std::setprecision(2) << "_dataKeyValue = " << this->_dataKeyValue << " | "
@@ -45,12 +42,12 @@ void                            BitcoinExchange::parseFileToData(const char *fil
             fileDataStruct(line);
             this->_data[this->_dataKeyValue] = this->_dataValue;
         }
-        std::map<std::string, float>::iterator it;
+        /*std::map<std::string, float>::iterator it;
         std::map<std::string, float>::iterator ite = this->_data.end();
         for (it = this->_data.begin(); it != ite; it++) {
             std::cout<< std::fixed << std::setprecision(2)
             << "_data[" << it->first << "] = " << it->second << std::endl;
-        }
+        }*/
         file.close();
     } else {
         std::cerr << "Unable to open " << file_csv << std::endl;
@@ -161,11 +158,21 @@ void    BitcoinExchange::outputResult(void) {
     std::map<std::string, float>::iterator it_data;
     std::map<std::string, float>::iterator ite_data = this->_data.end();
     std::map<std::string, float>::iterator it_data_up = _data.upper_bound(this->_inputKeyValue);
-    if (it_data_up == ite_data) {}
+    if (it_data_up == ite_data) {
+        it_data_up--;
+        std::cout << it_data_up->first << " => " << this->_mapInput[this->_inputKeyValue] << " = " << this->_mapInput[this->_inputKeyValue] * it_data_up->second << std::endl;
+    }
+    else {
+        it_data_up--;
+        std::cout << it_data_up->first << " => "
+        << this->_mapInput[this->_inputKeyValue] << " = "
+        << this->_mapInput[this->_inputKeyValue] * it_data_up->second
+        << std::endl;
+    }
 };
 
 void    BitcoinExchange::execute(const char *file_input) {
-    //parseFileToData("data.csv");
+    parseFileToData("data.csv");
     parseFileToRead(file_input);
     //checkValue("2012-01-11 | 0");
     return ;
