@@ -18,9 +18,9 @@ std::string cut_str(std::string str)
 void    display_one(Contact contact)
 {
     std::cout << std::setw(10) << contact.index << " |";
-    std::cout << std::setw(10) << cut_str(contact.firstName) << " |";
-    std::cout << std::setw(10) << cut_str(contact.lastName) << " |";
-    std::cout << std::setw(10) << cut_str(contact.nickName) << " |" << std::endl;
+    std::cout << std::setw(10) << cut_str(contact.getFirstName()) << " |";
+    std::cout << std::setw(10) << cut_str(contact.getLastName()) << " |";
+    std::cout << std::setw(10) << cut_str(contact.getNickName()) << " |" << std::endl;
     return;
 }
 

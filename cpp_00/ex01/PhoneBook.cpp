@@ -38,10 +38,10 @@ void	PhoneBook::search(int nb_of_contact)
 		std::cout << "Nothing exist at this index." << std::endl;
 		return;
 	}
-	std::cout << "first name: " << this->contact[index].firstName << std::endl;
-	std::cout << "last name: " << this->contact[index].lastName << std::endl;
-	std::cout << "nick name: " << this->contact[index].nickName << std::endl;
-	std::cout << "phone number: " << this->contact[index].phoneNumber << std::endl;
-	std::cout << "darkest secret: " << this->contact[index].darkestSecret << std::endl;
+	std::cout << "first name: " << this->contact[index].getFirstName() << std::endl;
+	std::cout << "last name: " << this->contact[index].getLastName() << std::endl;
+	std::cout << "nick name: " << this->contact[index].getNickName() << std::endl;
+	std::cout << "phone number: " << this->contact[index].getPhoneNumber() << std::endl;
+	std::cout << "darkest secret: " << this->contact[index].getDarkestSecret() << std::endl;
 	return;
 }

@@ -51,3 +51,9 @@ void	Contact::create(void) {
 	this->darkestSecret = user_input;
 	return;
 }
+
+std::string Contact::getFirstName() {return this->firstName;}; 
+std::string Contact::getLastName() {return this->lastName;};
+std::string Contact::getNickName() {return this->nickName;};
+std::string Contact::getPhoneNumber () {return this->phoneNumber;};
+std::string Contact::getDarkestSecret() {return this->darkestSecret;};
