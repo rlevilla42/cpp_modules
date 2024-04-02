@@ -45,3 +45,7 @@ void	PhoneBook::search(int nb_of_contact)
 	std::cout << "darkest secret: " << this->contact[index].getDarkestSecret() << std::endl;
 	return;
 }
+
+Contact     PhoneBook::getContact(int index) {
+	return this->contact[index];
+};

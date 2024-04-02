@@ -31,12 +31,13 @@ void    display_all(PhoneBook book, int nb_of_contact)
    {
         std::cout << "Create at least one contact before -___-"<< std::endl;
         return;
-   }
+   } 
    if (nb_of_contact < 9)
    {
         while (index < nb_of_contact)
         {
-            display_one(book.contact[index]);
+            //display_one(book.contact[index]);
+            display_one(book.getContact(index));
             index++;
         }
     }
@@ -44,7 +45,8 @@ void    display_all(PhoneBook book, int nb_of_contact)
     {
         while (index < 8)
         {
-            display_one(book.contact[index]);
+            //display_one(book.contact[index]);
+            display_one(book.getContact(index));
             index++;
         }
     }
