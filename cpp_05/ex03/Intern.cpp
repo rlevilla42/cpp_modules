@@ -14,7 +14,7 @@ Intern::Intern(Intern const &src) {if (this != &src){*this = src;} return;};
 
 Intern::~Intern(void) {return;};
 
-Intern &Intern::operator=(Intern const &rhs) {if (this != &rhs)return(*this);};
+Intern &Intern::operator=(Intern const &rhs) {return (*this);};
 
 /************** function *************/
 
